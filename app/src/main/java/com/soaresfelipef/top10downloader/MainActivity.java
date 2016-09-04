@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             Log.d("DownloadData","The result was " + result);
+            xmlTextView.setText(mFileContents);
         }
 
         private String downloadXMLFile(String urlPath){
