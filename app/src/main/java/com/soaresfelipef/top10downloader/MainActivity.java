@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,12 +14,15 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView xmlTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DownloadData downloadData = new DownloadData();
         downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml");
+        xmlTextView = (TextView)findViewById(R.id.xmlTextView);
     }
 
     private class DownloadData extends AsyncTask<String, Void, String>{
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 return tempBuffer.toString();
             }catch(IOException e){
                 Log.d("DownloadData","IO Exception reading data: " + e.getMessage());
+                e.printStackTrace();
             }catch(SecurityException e){
                 Log.d("DownloadData","Security Exception. Needs permissions?" + e.getMessage());
             }
