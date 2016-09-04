@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
             return mFileContents;
         }
 
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            Log.d("DownloadData","The result was " + result);
+        }
+
         private String downloadXMLFile(String urlPath){
             StringBuilder tempBuffer = new StringBuilder();
             try{
@@ -56,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             }catch(IOException e){
                 Log.d("DownloadData","IO Exception reading data: " + e.getMessage());
             }
+
+            return null;
         }
     }
 }
