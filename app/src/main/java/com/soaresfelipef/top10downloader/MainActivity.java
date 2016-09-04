@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DownloadData downloadData = new DownloadData();
+        downloadData.execute("http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=10/xml");
     }
 
     private class DownloadData extends AsyncTask<String, Void, String>{
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         private String mFileContents;
 
         @Override
-        protected String doInBackground(String... strings) {
+        protected String doInBackground(String... params) {
             mFileContents = downloadXMLFile(params[0]);
             if(mFileContents == null){
                 Log.d("DownloadData","Error downloading");
