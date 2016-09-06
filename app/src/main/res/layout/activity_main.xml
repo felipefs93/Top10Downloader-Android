@@ -9,9 +9,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.soaresfelipef.top10downloader.MainActivity">
 
-    <TextView
-        android:id="@+id/xmlTextView"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="New Button"
+        android:id="@+id/btnParse"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/xmlListView"
+        android:layout_below="@+id/btnParse"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
 </RelativeLayout>
