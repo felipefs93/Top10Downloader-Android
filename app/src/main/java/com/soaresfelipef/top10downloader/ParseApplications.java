@@ -49,6 +49,7 @@ public class ParseApplications {
                         break;
                     case XmlPullParser.TEXT:
                         textValue = xpp.getText();
+                        break;
                     case XmlPullParser.END_TAG:
                         Log.d("ParseApplications","Ending tag for " + tagName);
                         if(inEntry){
