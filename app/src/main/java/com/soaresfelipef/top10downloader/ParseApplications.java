@@ -27,7 +27,7 @@ public class ParseApplications {
 
     public boolean process(){
         boolean status = true;
-        Application currentRecord;
+        Application currentRecord = null;
         boolean inEntry = false;
         String textValue = "";
 
