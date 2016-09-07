@@ -45,8 +45,8 @@ public class ParseApplications {
                         if(tagName.equalsIgnoreCase("entry")){
                             inEntry = true;
                             currentRecord = new Application();
-                            break;
                         }
+                        break;
                     case XmlPullParser.END_TAG:
                         Log.d("ParseApplications","Ending tag for " + tagName);
                         break;
