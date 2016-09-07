@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnParse;
     private ListView listApps;
+    private String mFileContents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Add parse activation code
+                ParseApplications parseApplications = new ParseApplications(mFileContents);
+                parseApplications.process();
             }
         });
         listApps = (ListView)findViewById(R.id.xmlListView);
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     private class DownloadData extends AsyncTask<String, Void, String>{
 
-        private String mFileContents;
 
         @Override
         protected String doInBackground(String... params) {
